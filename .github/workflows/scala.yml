@@ -12,15 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Echo branch name
-        run: echo ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
       - name: Extract branch name
         shell: bash
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: extract_branch
-      - name: Run lint
-        working-directory: ./${{ steps.extract_branch.outputs.branch }}
-        run: sbt scalafmtCheck test:scalafmtCheck
       - name: Run tests
         working-directory: ./${{ steps.extract_branch.outputs.branch }}
         run: sbt test
+      - name: Run lint
+        working-directory: ./${{ steps.extract_branch.outputs.branch }}
+        run: |
+          if [[ -f './.scalafmt.conf' ]]; then
+            sbt scalafmtCheck test:scalafmtCheck
+          else
+            echo ".scalafmt.conf does not exist, skipping lint"
+          fi
