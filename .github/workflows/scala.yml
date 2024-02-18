@@ -1,0 +1,21 @@
+name: Scala CI
+on:
+  push:
+    branches:
+      - 'homeworks/*'
+  pull_request:
+    branches:
+      - 'homeworks/*'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run tests
+        run: sbt test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Formatting
+        run: sbt scalafmtCheck test:scalafmtCheck
