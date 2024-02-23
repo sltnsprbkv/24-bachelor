@@ -16,7 +16,7 @@
    ![Collaborators](images/collaborators.png "collaborators")
    5. Нажав `Add people`, добавить в свой проект своего преподавателя
 2. Скопировать ссылку на клонирование с главной страницы репозитория с заданием
-   ![clone_link](images/fork_link.png "clone link")
+   ![clone_link](images/clone_link.png "clone link")
 3. В окне Intellij выбрать Get from VCS
    ![Get from VCS](images/get_from_vcs.png "Get from vcs")
 4. В поле `Ссылка` вставить скопированный линк
