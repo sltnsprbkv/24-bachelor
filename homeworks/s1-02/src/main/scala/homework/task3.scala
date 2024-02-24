@@ -2,7 +2,7 @@ package homework
 
 import utils.Homeworks._
 
-object task2_finite_equivalences {
+object task3 {
 
   sealed trait Ternary
   object Ternary {

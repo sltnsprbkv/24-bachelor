@@ -6,8 +6,8 @@ import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should._
 import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
 
-class FiniteEquivalenceSpec extends AnyWordSpec with Matchers with ScalaCheckPropertyChecks {
-  import task2_finite_equivalences._
+class task3Spec extends AnyWordSpec with Matchers with ScalaCheckPropertyChecks {
+  import task3._
   import Ternary._
 
   implicit val arbitraryThree: Arbitrary[Ternary] = Arbitrary(Gen.oneOf(Yes, No, Maybe))
